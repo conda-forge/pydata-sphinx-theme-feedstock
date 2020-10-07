@@ -1,5 +1,5 @@
 {% set name = "pydata-sphinx-theme" %}
-{% set version = "0.4.0" %}
+{% set version = "0.4.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 363ffdc3dffacc137fa06d7a15893acd12c28d74f7f32401d300c3922788cdeb
+  sha256: 4e95d0dca0a64ba9471a89cdb6197cf8bb81b31f75ad0b7b6f0e85196fb7fe39
 
 build:
   number: 0
