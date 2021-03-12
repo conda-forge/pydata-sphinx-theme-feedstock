@@ -1,5 +1,5 @@
 {% set name = "pydata-sphinx-theme" %}
-{% set version = "0.4.3" %}
+{% set version = "0.5.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 8cf8fbc74c6c47d6ed497a91f3bedf94d57383b52eebb4fa05ae7fc4f50767a2
+  sha256: 3596b3e04909f45fc20fb909b9aafb70c20383e11963f396b41e89c34b94c6ea
 
 build:
   number: 0
@@ -21,19 +21,20 @@ requirements:
   run:
     - python >=3.5
     - sphinx
+    - beautifulsoup4
 
 test:
   imports:
     - pydata_sphinx_theme
 
 about:
-  home: https://github.com/pandas-dev/pydata-sphinx-theme
+  home: https://github.com/pydata/pydata-sphinx-theme
   license: BSD-3-Clause
   license_family: BSD
   license_file: LICENSE
   summary: Bootstrap-based Sphinx theme from the PyData community
   doc_url: https://pydata-sphinx-theme.readthedocs.io/
-  dev_url: https://github.com/pandas-dev/pydata-sphinx-theme
+  dev_url: https://github.com/pydata/pydata-sphinx-theme
 
 extra:
   recipe-maintainers:
