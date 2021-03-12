@@ -21,19 +21,20 @@ requirements:
   run:
     - python >=3.5
     - sphinx
+    - beautifulsoup4
 
 test:
   imports:
     - pydata_sphinx_theme
 
 about:
-  home: https://github.com/pandas-dev/pydata-sphinx-theme
+  home: https://github.com/pydata/pydata-sphinx-theme
   license: BSD-3-Clause
   license_family: BSD
   license_file: LICENSE
   summary: Bootstrap-based Sphinx theme from the PyData community
   doc_url: https://pydata-sphinx-theme.readthedocs.io/
-  dev_url: https://github.com/pandas-dev/pydata-sphinx-theme
+  dev_url: https://github.com/pydata/pydata-sphinx-theme
 
 extra:
   recipe-maintainers:
