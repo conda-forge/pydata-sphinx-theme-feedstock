@@ -1,7 +1,7 @@
 About pydata-sphinx-theme
 =========================
 
-Home: https://github.com/pandas-dev/pydata-sphinx-theme
+Home: https://github.com/pydata/pydata-sphinx-theme
 
 Package license: BSD-3-Clause
 
@@ -9,7 +9,7 @@ Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/pydata-sphinx-t
 
 Summary: Bootstrap-based Sphinx theme from the PyData community
 
-Development: https://github.com/pandas-dev/pydata-sphinx-theme
+Development: https://github.com/pydata/pydata-sphinx-theme
 
 Documentation: https://pydata-sphinx-theme.readthedocs.io/
 
