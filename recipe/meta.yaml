@@ -6,13 +6,17 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: a698391d3a1c7f31ba4a4e576f868490f4ed405004a4802661c4f2921aa7ab84
+  - folder: dist
+    url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+    sha256: a698391d3a1c7f31ba4a4e576f868490f4ed405004a4802661c4f2921aa7ab84
+  - folder: src
+    url: https://github.com/pydata/pydata-sphinx-theme/archive/refs/tags/v{{ version }}.tar.gz
+    sha256s: 991bd64784395eeda232883814d24d327a84960a541e2d29d2ab6209cf8d31a3
 
 build:
   number: 1
   noarch: python
-  script: {{ PYTHON }} -m pip install . -vv
+  script: cd dist && {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
@@ -25,18 +29,31 @@ requirements:
     - docutils <0.17
 
 test:
-  requires:
-    - pip
+  source_files:
+    - src/tests
   imports:
     - pydata_sphinx_theme
   commands:
     - pip check
+    - cd src/tests
+    - pytest -vv --cov pydata_sphinx_theme --cov-branch --cov-fail-under=73 --cov-report term-missing:skip-covered --no-cov-on-fail
+  requires:
+    - jupyter_sphinx !=0.3.1
+    - numpydoc
+    - pandas
+    - pip
+    - plotly
+    - pytest-cov
+    - pytest-regressions
+    - recommonmark
+    - sphinx-thebe
+    - xarray
 
 about:
   home: https://github.com/pydata/pydata-sphinx-theme
   license: BSD-3-Clause
   license_family: BSD
-  license_file: LICENSE
+  license_file: dist/LICENSE
   summary: Bootstrap-based Sphinx theme from the PyData community
   doc_url: https://pydata-sphinx-theme.readthedocs.io/
   dev_url: https://github.com/pydata/pydata-sphinx-theme
