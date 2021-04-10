@@ -11,7 +11,7 @@ source:
     sha256: a698391d3a1c7f31ba4a4e576f868490f4ed405004a4802661c4f2921aa7ab84
   - folder: src
     url: https://github.com/pydata/pydata-sphinx-theme/archive/refs/tags/v{{ version }}.tar.gz
-    sha256s: 991bd64784395eeda232883814d24d327a84960a541e2d29d2ab6209cf8d31a3
+    sha256: 991bd64784395eeda232883814d24d327a84960a541e2d29d2ab6209cf8d31a3
 
 build:
   number: 1
