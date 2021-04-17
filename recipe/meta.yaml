@@ -2,17 +2,21 @@
 {% set version = "0.6.1" %}
 
 package:
-  name: {{ name|lower }}
+  name: {{ name }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 517d5f9441d28c64b2bbdb87f4349e5751ba1fe920cd76faa7493688d5f40e6b
+  - folder: dist
+    url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+    sha256: 517d5f9441d28c64b2bbdb87f4349e5751ba1fe920cd76faa7493688d5f40e6b
+  - folder: src
+    url: https://github.com/pydata/pydata-sphinx-theme/archive/refs/tags/v{{ version }}.tar.gz
+    sha256: b7e0df298b71e5f2684744bc58539541d7ca09e03d36f12838a6a2259794d6a8
 
 build:
-  number: 0
+  number: 1
   noarch: python
-  script: {{ PYTHON }} -m pip install . -vv
+  script: cd dist && {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
@@ -22,16 +26,34 @@ requirements:
     - python >=3.5
     - sphinx
     - beautifulsoup4
+    - docutils <0.17
 
 test:
+  source_files:
+    - src/tests
   imports:
     - pydata_sphinx_theme
+  commands:
+    - pip check
+    - cd src/tests
+    - pytest -vv --cov pydata_sphinx_theme --cov-branch --cov-fail-under=73 --cov-report term-missing:skip-covered --no-cov-on-fail
+  requires:
+    - jupyter_sphinx !=0.3.1
+    - numpydoc
+    - pandas
+    - pip
+    - plotly
+    - pytest-cov
+    - pytest-regressions
+    - recommonmark
+    - sphinx-thebe
+    - xarray
 
 about:
   home: https://github.com/pydata/pydata-sphinx-theme
   license: BSD-3-Clause
   license_family: BSD
-  license_file: LICENSE
+  license_file: dist/LICENSE
   summary: Bootstrap-based Sphinx theme from the PyData community
   doc_url: https://pydata-sphinx-theme.readthedocs.io/
   dev_url: https://github.com/pydata/pydata-sphinx-theme
@@ -39,3 +61,4 @@ about:
 extra:
   recipe-maintainers:
     - jorisvandenbossche
+    - bollwyvl
