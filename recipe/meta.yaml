@@ -9,12 +9,16 @@ source:
   - folder: dist
     url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
     sha256: 32e0580ef985734d652eec2bf25e0995a330a9d4f76deaa353571ce8e180ab14
+    patches:
+      # drop this patch in the next release
+      # xref.: https://github.com/pydata/pydata-sphinx-theme/pull/439
+      - gh_439.patch
   - folder: src
     url: https://github.com/pydata/pydata-sphinx-theme/archive/refs/tags/v{{ version }}.tar.gz
     sha256: c5e33c92ab3524327b7f07b46768d4765124101ea6112379755cc72e050b49d8
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script: cd dist && {{ PYTHON }} -m pip install . -vv
 
