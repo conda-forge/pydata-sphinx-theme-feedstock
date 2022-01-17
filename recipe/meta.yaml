@@ -1,32 +1,33 @@
-{% set name = "pydata-sphinx-theme" %}
-{% set version = "0.7.2" %}
+{% set version = "0.8.0" %}
+{% set cov_fail_under = 78 %}
 
 package:
-  name: {{ name }}
+  name: pydata-sphinx-theme
   version: {{ version }}
 
 source:
-  - folder: dist
-    url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-    sha256: 671df35fcdd290eafbd23d0595e6d359dbe90b2e64e6c3f4dc88276eed4a065e
+  - url: https://pypi.io/packages/py3/p/pydata-sphinx-theme/pydata_sphinx_theme-{{ version }}-py3-none-any.whl
+    sha256: fbcbb833a07d3ad8dd997dd40dc94da18d98b41c68123ab0182b58fe92271204
   - folder: src
     url: https://github.com/pydata/pydata-sphinx-theme/archive/refs/tags/v{{ version }}.tar.gz
-    sha256: 825096e75b35a55bcb05171e4a0efc22ad49527ce7a91ae961f433157b749e84
+    sha256: 11c13d0fd82232e4d5006b9febd275f4fd039e997e7564618f6450b63826397c
 
 build:
   number: 0
   noarch: python
-  script: cd dist && {{ PYTHON }} -m pip install . -vv
+  script:
+    - {{ PYTHON }} -m pip install --find-links . --no-index --ignore-installed --no-deps pydata-sphinx-theme
+    - cd {{ RECIPE_DIR }} && {{ PYTHON }} collect_licenses.py
 
 requirements:
   host:
-    - python >=3.5
     - pip
+    - python >=3.7
   run:
-    - python >=3.5
-    - sphinx
     - beautifulsoup4
-    - docutils
+    - docutils !=0.17.0
+    - python >=3.7
+    - sphinx
 
 test:
   source_files:
@@ -36,7 +37,7 @@ test:
   commands:
     - pip check
     - cd src/tests
-    - pytest -vv --cov pydata_sphinx_theme --cov-branch --cov-fail-under=72 --cov-report term-missing:skip-covered --no-cov-on-fail
+    - pytest -vv --cov=pydata_sphinx_theme --cov-branch --cov-report=term-missing:skip-covered --no-cov-on-fail --cov-fail-under={{ cov_fail_under }}
   requires:
     # probably _compatible_ with older versions of sphinx, but would fail tests
     # see https://github.com/pydata/pydata-sphinx-theme/issues/446
@@ -56,7 +57,9 @@ about:
   home: https://github.com/pydata/pydata-sphinx-theme
   license: BSD-3-Clause
   license_family: BSD
-  license_file: dist/LICENSE
+  license_file:
+    - src/LICENSE
+    - third-party-licenses/font-awesome-LICENSE.txt
   summary: Bootstrap-based Sphinx theme from the PyData community
   doc_url: https://pydata-sphinx-theme.readthedocs.io/
   dev_url: https://github.com/pydata/pydata-sphinx-theme
