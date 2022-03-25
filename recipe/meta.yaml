@@ -1,4 +1,4 @@
-{% set version = "0.8.0" %}
+{% set version = "0.8.1" %}
 {% set cov_fail_under = 78 %}
 
 package:
@@ -7,10 +7,10 @@ package:
 
 source:
   - url: https://pypi.io/packages/py3/p/pydata-sphinx-theme/pydata_sphinx_theme-{{ version }}-py3-none-any.whl
-    sha256: fbcbb833a07d3ad8dd997dd40dc94da18d98b41c68123ab0182b58fe92271204
+    sha256: af2c99cb0b43d95247b1563860942ba75d7f1596360594fce510caaf8c4fcc16
   - folder: src
     url: https://github.com/pydata/pydata-sphinx-theme/archive/refs/tags/v{{ version }}.tar.gz
-    sha256: 11c13d0fd82232e4d5006b9febd275f4fd039e997e7564618f6450b63826397c
+    sha256: 17826fb7a316038112d3e1f616ed25cd5efe3e2b551d61a3b7b14cd847aeff94
 
 build:
   number: 0
