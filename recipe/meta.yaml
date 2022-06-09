@@ -13,7 +13,7 @@ source:
     sha256: 1aaa1cf3261c46d1ac00c38feaa9fc7d5f22ba7e072f346970dabd772b7640c2
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script:
     - {{ PYTHON }} -m pip install --find-links . --no-index --ignore-installed --no-deps pydata-sphinx-theme
@@ -26,8 +26,9 @@ requirements:
   run:
     - beautifulsoup4
     - docutils !=0.17.0
+    - packaging
     - python >=3.7
-    - sphinx
+    - sphinx >=4.0.2
 
 test:
   source_files:
