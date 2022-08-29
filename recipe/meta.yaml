@@ -27,6 +27,7 @@ requirements:
     - beautifulsoup4
     - docutils !=0.17.0
     - packaging
+    - pygments >=2.7
     - python >=3.7
     - sphinx >=4.0.2
 
