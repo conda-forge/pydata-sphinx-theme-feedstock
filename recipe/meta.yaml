@@ -1,4 +1,4 @@
-{% set version = "0.11.0" %}
+{% set version = "0.12.0" %}
 {% set cov_fail_under = "82" %}
 {% set min_sphinx = "4.2" %}
 
@@ -8,13 +8,13 @@ package:
 
 source:
   - url: https://pypi.io/packages/py3/p/pydata-sphinx-theme/pydata_sphinx_theme-{{ version }}-py3-none-any.whl
-    sha256: 64f1fc4c79a1f066b913541116cd5a7e83e140ba0e983509eedd9e66e1f948c8
+    sha256: c17dbab67a3774f06f34f6378e896fcd0668cc8b5da1c1ba017e65cf1df0af58
   - folder: src
     url: https://github.com/pydata/pydata-sphinx-theme/archive/refs/tags/v{{ version }}.tar.gz
-    sha256: e08b96d986d0ec7f06783d78cee034f49b92f047a6337a9246537c78c50bf135
+    sha256: 1759e12524b440d136228086206fbd23c3cf8007a64d3cecd7eda492f85617d3
 
 build:
-  number: 1
+  number: 0
   noarch: python
   script:
     - {{ PYTHON }} -m pip install --find-links . --no-index --ignore-installed --no-deps pydata-sphinx-theme
