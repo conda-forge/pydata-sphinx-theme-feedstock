@@ -27,6 +27,7 @@ requirements:
   host:
     - pip
     - python >=3.7
+    - sphinx-theme-builder >=0.2.0a7
   run:
     - beautifulsoup4
     - docutils !=0.17.0
