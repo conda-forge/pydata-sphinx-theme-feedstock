@@ -8,10 +8,10 @@ package:
 
 source:
   - url: https://pypi.io/packages/py3/p/pydata-sphinx-theme/pydata_sphinx_theme-{{ version }}-py3-none-any.whl
-    sha256: c17dbab67a3774f06f34f6378e896fcd0668cc8b5da1c1ba017e65cf1df0af58
+    sha256: b4b902317fcbbc5c583ceb245b62d71e47c7820b06fc2228e355b7045d59be97
   - folder: src
     url: https://github.com/pydata/pydata-sphinx-theme/archive/refs/tags/v{{ version }}.tar.gz
-    sha256: 1759e12524b440d136228086206fbd23c3cf8007a64d3cecd7eda492f85617d3
+    sha256: e9829e5e7668ac3a2f7a7e4dad9947cc4fe5f9dc79cf310b5244f17f87a1ce12
 
 build:
   number: 0
