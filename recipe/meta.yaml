@@ -13,9 +13,6 @@ source:
     url: https://github.com/pydata/pydata-sphinx-theme/archive/refs/tags/v{{ version }}.tar.gz
     sha256: 1759e12524b440d136228086206fbd23c3cf8007a64d3cecd7eda492f85617d3
 
-channel_targets:
-  - conda-forge pydata-sphinx-theme_rc
-
 build:
   number: 0
   noarch: python
@@ -29,13 +26,13 @@ requirements:
     - python >=3.7
     - sphinx-theme-builder >=0.2.0a7
   run:
+    - accessible-pygments
     - beautifulsoup4
     - docutils !=0.17.0
     - packaging
     - pygments >=2.7
     - python >=3.7
     - sphinx >={{ min_sphinx }}
-    - accessible-pygments
 
 test:
   source_files:
