@@ -7,11 +7,11 @@ package:
   version: {{ version }}
 
 source:
-   - url: https://pypi.io/packages/py3/p/pydata-sphinx-theme/pydata_sphinx_theme-{{ version }}-py3-none-any.whl
-     sha256: bdf7d275914e7675628ca2bf6eb3a21d0efa0e6b99a3a5421832594076754c33
-   - folder: src
-     url: https://github.com/pydata/pydata-sphinx-theme/archive/refs/tags/v{{ version }}.tar.gz
-     sha256: 02d5d6f3ebe9a058e209118cc818874075fc93521cce8f2b3cf756fa85d57d63
+  - url: https://pypi.io/packages/py3/p/pydata-sphinx-theme/pydata_sphinx_theme-{{ version }}-py3-none-any.whl
+    sha256: bdf7d275914e7675628ca2bf6eb3a21d0efa0e6b99a3a5421832594076754c33
+  - folder: src
+    url: https://github.com/pydata/pydata-sphinx-theme/archive/refs/tags/v{{ version }}.tar.gz
+    sha256: 02d5d6f3ebe9a058e209118cc818874075fc93521cce8f2b3cf756fa85d57d63
 
 build:
   number: 0
