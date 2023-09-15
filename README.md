@@ -149,4 +149,5 @@ Feedstock Maintainers
 
 * [@bollwyvl](https://github.com/bollwyvl/)
 * [@jorisvandenbossche](https://github.com/jorisvandenbossche/)
+* [@michaelweinold](https://github.com/michaelweinold/)
 
