@@ -1,17 +1,17 @@
-{% set version = "0.13.3" %}
+{% set version = "0.14.0" %}
 {% set cov_fail_under = "82" %}
-{% set min_sphinx = "4.2" %}
+{% set min_sphinx = "5.0" %}
 
 package:
   name: pydata-sphinx-theme
   version: {{ version }}
 
 source:
-  - url: https://pypi.io/packages/py3/p/pydata-sphinx-theme/pydata_sphinx_theme-{{ version }}-py3-none-any.whl
-    sha256: bf41ca6c1c6216e929e28834e404bfc90e080b51915bbe7563b5e6fda70354f0
-  - folder: src
-    url: https://github.com/pydata/pydata-sphinx-theme/archive/refs/tags/v{{ version }}.tar.gz
-    sha256: 1cccb5f54341da7822914dbd0ef06b19e559efbde747b19fd871ced9eb30c1fd
+   - url: https://pypi.io/packages/py3/p/pydata-sphinx-theme/pydata_sphinx_theme-{{ version }}-py3-none-any.whl
+     sha256: bdf7d275914e7675628ca2bf6eb3a21d0efa0e6b99a3a5421832594076754c33
+   - folder: src
+     url: https://github.com/pydata/pydata-sphinx-theme/archive/refs/tags/v{{ version }}.tar.gz
+     sha256: 02d5d6f3ebe9a058e209118cc818874075fc93521cce8f2b3cf756fa85d57d63
 
 build:
   number: 0
@@ -23,7 +23,7 @@ build:
 requirements:
   host:
     - pip
-    - python >=3.7
+    - python >=3.8
     - sphinx-theme-builder >=0.2.0a7
   run:
     - accessible-pygments
@@ -32,7 +32,7 @@ requirements:
     - docutils !=0.17.0
     - packaging
     - pygments >=2.7
-    - python >=3.7
+    - python >=3.8
     - sphinx >={{ min_sphinx }}
 
 test:
@@ -74,3 +74,4 @@ extra:
   recipe-maintainers:
     - jorisvandenbossche
     - bollwyvl
+    - michaelweinold
