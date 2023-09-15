@@ -45,8 +45,6 @@ test:
     - cd src/tests
     - pytest -vv --cov=pydata_sphinx_theme --cov-branch --cov-report=term-missing:skip-covered --no-cov-on-fail --cov-fail-under={{ cov_fail_under }}
   requires:
-    # probably _compatible_ with older versions of sphinx, but would fail tests
-    # see https://github.com/pydata/pydata-sphinx-theme/issues/446
     - sphinx {{ min_sphinx }}.*
     - jupyter_sphinx
     - numpydoc
