@@ -14,7 +14,7 @@ source:
     sha256: 2ca3d012ad8bebe234a498467f73ff0b43935015881ef33e33ef61c1187f8e23
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script:
     - {{ PYTHON }} -m pip install --find-links . --no-index --ignore-installed --no-deps pydata-sphinx-theme
@@ -34,6 +34,7 @@ requirements:
     - pygments >=2.7
     - python >=3.8
     - sphinx >={{ min_sphinx }}
+    - typing-extensions
 
 test:
   source_files:
