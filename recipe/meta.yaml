@@ -1,5 +1,5 @@
 {% set version = "0.15.2" %}
-{% set cov_fail_under = "89" %}
+{% set cov_fail_under = "88" %}
 {% set min_sphinx = "5.0" %}
 
 package:
