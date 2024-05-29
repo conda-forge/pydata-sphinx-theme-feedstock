@@ -34,7 +34,7 @@ requirements:
     - pygments >=2.7
     - python >=3.9
     - sphinx >={{ min_sphinx }}
-    - typing-extensions
+    - typing_extensions
 
 test:
   source_files:
@@ -48,7 +48,8 @@ test:
   requires:
     - sphinx {{ min_sphinx }}.*
     - jupyter_sphinx
-    - numpydoc
+    # numpydoc 1.7 requires sphinx 6
+    - numpydoc <1.7
     - pandas
     - pip
     - plotly
