@@ -1,6 +1,6 @@
 {% set version = "0.16.0" %}
 {% set cov_fail_under = "87" %}
-{% set min_sphinx = "5.0" %}
+{% set min_sphinx = "6.1" %}
 
 package:
   name: pydata-sphinx-theme
@@ -24,6 +24,7 @@ requirements:
   host:
     - pip
     - python >=3.9
+    - setuptools
     - sphinx-theme-builder >=0.2.0a7
   run:
     - accessible-pygments
@@ -47,16 +48,15 @@ test:
     - coverage run -m --source=pydata_sphinx_theme --branch pytest -vv --color=yes --tb=long -k "not test_pygments_fallbacks"
     - coverage report --show-missing --skip-covered --fail-under={{ cov_fail_under }}
   requires:
-    - sphinx {{ min_sphinx }}.*
     - jupyter_sphinx
-    # numpydoc 1.7 requires sphinx 6
-    - numpydoc <1.7
+    - numpydoc
     - pandas
     - pip
     - plotly
     - pytest-cov
     - pytest-regressions
     - recommonmark
+    - sphinx {{ min_sphinx }}.*
     - sphinx-thebe
     - xarray
 
@@ -66,7 +66,7 @@ about:
   license_family: BSD
   license_file:
     - src/LICENSE
-    - third-party-licenses/font-awesome-LICENSE.txt
+    - third-party-licenses/
   summary: Bootstrap-based Sphinx theme from the PyData community
   doc_url: https://pydata-sphinx-theme.readthedocs.io/
   dev_url: https://github.com/pydata/pydata-sphinx-theme
