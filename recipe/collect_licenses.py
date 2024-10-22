@@ -21,8 +21,12 @@ def main() -> int:
         shutil.copy2(WHL, ZIP)
         shutil.unpack_archive(ZIP, DIST)
 
-        for license in DIST.glob("pydata_sphinx_theme/static/*LICENSE.*"):
+        for license in DIST.glob("pydata_sphinx_theme/static/**/*LICENSE.*"):
             shutil.copy2(license, license_dir / license.name)
+
+    if not sorted(license_dir.glob("*")):
+        print("!!! No third-party licenses found")
+        return 1
 
     return 0
 
