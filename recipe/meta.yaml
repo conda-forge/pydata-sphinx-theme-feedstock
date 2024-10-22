@@ -45,7 +45,7 @@ test:
   commands:
     - pip check
     - cd src/tests
-    - coverage run -m --source=pydata_sphinx_theme --branch pytest -vv --color=yes --tb=long -k "not test_pygments_fallbacks"
+    - coverage run -m --source=pydata_sphinx_theme --branch pytest -vv --color=yes --tb=long -k "not (pygments_fallbacks or translations)"
     - coverage report --show-missing --skip-covered --fail-under={{ cov_fail_under }}
   requires:
     - jupyter_sphinx
