@@ -151,6 +151,3 @@ Feedstock Maintainers
 * [@jorisvandenbossche](https://github.com/jorisvandenbossche/)
 * [@michaelweinold](https://github.com/michaelweinold/)
 
-
-<!-- dummy commit to enable rerendering -->
-
