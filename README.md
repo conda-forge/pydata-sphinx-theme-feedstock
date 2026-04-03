@@ -3,7 +3,7 @@ About pydata-sphinx-theme-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/pydata-sphinx-theme-feedstock/blob/main/LICENSE.txt)
 
-Home: https://github.com/pydata/pydata-sphinx-theme
+Home: https://pypi.org/project/pydata-sphinx-theme
 
 Package license: BSD-3-Clause
 
