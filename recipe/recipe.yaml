@@ -2,7 +2,7 @@
 schema_version: 1
 
 context:
-  version: "0.20.0"
+  version: "0.21.0"
   # build
   python_min: "3.11"
   nodejs_min: "22.9"
@@ -12,6 +12,8 @@ context:
   # test
   python_check_max: "3.14"
   pytest_k: not chromium
+  # test_bump_version.py: refrences files not in the distribution
+  unlink_tests: test_bump_version.py
   cov_fail_under: "85"
 
 package:
@@ -20,7 +22,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/p/pydata-sphinx-theme/pydata_sphinx_theme-${{ version }}.tar.gz
-  sha256: 0da172d41e19a66de875f4002f7054b385372ec65763852193791e658d50bb4a
+  sha256: dc3f71216ea34725ddad68e505497eab4ba134a88abfb971a7df6b28a35c1997
 
 build:
   number: 0
@@ -72,6 +74,7 @@ tests:
         - pyproject.toml
         - tests/
     script:
+      - python -c "import os; [os.unlink(f'tests/{p}') for p in '''${{ unlink_tests }}'''.split()]"
       - coverage run --source=pydata_sphinx_theme --branch -m pytest -vv --tb=long --color=yes -k="${{ pytest_k }}"
       - coverage report --show-missing --skip-covered --fail-under=${{ cov_fail_under }}
 
