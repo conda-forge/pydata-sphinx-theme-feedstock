@@ -4,7 +4,6 @@ schema_version: 1
 context:
   version: "0.22.0"
   # build
-  python_min: "3.11"
   nodejs_min: "22.9"
   # run
   sphinx_min: "8.2"
