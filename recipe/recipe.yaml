@@ -2,9 +2,8 @@
 schema_version: 1
 
 context:
-  version: "0.21.0"
+  version: "0.22.0"
   # build
-  python_min: "3.11"
   nodejs_min: "22.9"
   # run
   sphinx_min: "8.2"
@@ -21,8 +20,8 @@ package:
   version: ${{ version }}
 
 source:
-  url: https://pypi.org/packages/source/p/pydata-sphinx-theme/pydata_sphinx_theme-${{ version }}.tar.gz
-  sha256: dc3f71216ea34725ddad68e505497eab4ba134a88abfb971a7df6b28a35c1997
+  url: https://files.pythonhosted.org/packages/source/p/pydata-sphinx-theme/pydata_sphinx_theme-${{ version }}.tar.gz
+  sha256: 5a18c517494f7ea285263d117b0b22e56d4eb689fcab72d9f70e3a6d766a77f1
 
 build:
   number: 0
@@ -32,7 +31,7 @@ build:
       STB_USE_SYSTEM_NODE: "1"
       STB_RELAX_NODE_VERSION_CHECK: "1"
     content:
-      - ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation --disable-pip-version-check
+      - ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation --disable-pip-version-check --check-build-dependencies
 
 requirements:
   build:
@@ -51,9 +50,16 @@ requirements:
     - pygments >=2.7
     - python >=${{ python_min }}
     - requests
-    - sphinx >=${{ sphinx_min }}
+    - sphinx >=${{ sphinx_min }},<${{ sphinx_max }}
 
 tests:
+  - package_contents:
+      strict: true
+      files:
+        - etc/conda/test-files/pydata-sphinx-theme/**
+      site_packages:
+        - pydata_sphinx_theme/**
+        - pydata_sphinx_theme-${{ version }}.dist-info/**
   - python:
       imports: pydata_sphinx_theme
       pip_check: true
