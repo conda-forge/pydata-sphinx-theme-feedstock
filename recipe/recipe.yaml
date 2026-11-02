@@ -4,7 +4,7 @@ schema_version: 1
 context:
   version: "0.24.0"
   # build
-  nodejs_min: "24.21"
+  nodejs_min: "24.22"
   # run
   sphinx_min: "8.2"
   sphinx_max: "10.0"
